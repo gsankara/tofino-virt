@@ -1,0 +1,93 @@
+===== p4_build.sh lab1_basic  (/home/coder/P4_labs/lab1/p4src/basic.p4)  at Thu Aug  6 18:54:48 UTC 2026 =====
+
+Intel Tofino SDE 9.13.4 on platform "model"
+Compile: $ p4_build.sh <p4name>.p4
+Run:     $ run_switchd.sh -p <p4name>
+Run Tofino model:
+         $ sudo $(type -p veth_setup.sh)
+         $ run_tofino_model.sh -p <p4name>
+         $ run_switchd.sh -p <p4name>
+         $ sudo $(type -p veth_teardown.sh)
+Run Tofino model with custom portinfo file:
+         $ sudo $(type -p veth_from_portinfo) <portinfo-file>
+         $ run_tofino_model.sh -p <p4name> -f <portinfo-file>
+         $ run_switchd.sh -p <p4name>
+         $ sudo $(type -p veth_from_portinfo) --teardown <portinfo-file>
+Run PTF tests: run the Tofino model, then
+         $ run_p4_tests.sh -p <p4name> -t <path-to-dir-with-test-scripts>
+
+Build artifacts and logs are stored in /home/coder/.bf-sde/9.13.4
+
+Use "exit" or CTRL-D to exit this shell.
+Executing command "p4_build.sh /home/coder/P4_labs/lab1/p4src/basic.p4"
+CMake Deprecation Warning at CMakeLists.txt:158 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 12.3.0
+-- The CXX compiler identification is GNU 12.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /nix/store/90h6k8ylkgn81k10190v5c9ldyjpzgl9-gcc-wrapper-12.3.0/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /nix/store/90h6k8ylkgn81k10190v5c9ldyjpzgl9-gcc-wrapper-12.3.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+Using SDE: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4
+-- 
+Using SDE_INSTALL: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4
+<string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-- 
+Target option missing. Using TOFINO
+
+-- 
+P4_LANG: p4-16
+P4C: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/bin/bf-p4c
+P4C-GEN_BRFT-CONF: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/bin/p4c-gen-bfrt-conf
+P4C-MANIFEST-CONFIG: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/bin/p4c-manifest-config
+<string>:2: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:2: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-- 
+P4_PATH: /home/coder/P4_labs/lab1/p4src/basic.p4
+P4_NAME: basic
+-- Configuring done (0.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/coder/.bf-sde/9.13.4/build
+[  0%] Built target driver
+[  0%] Built target bf-p4c
+[100%] Generating basic/tofino/bf-rt.json
+/home/coder/P4_labs/lab1/p4src/basic.p4(107): warning: No size defined for table 'forwarding', setting default size to 512
+    table forwarding {
+          ^^^^^^^^^^
+warning: Parser state min_parse_depth_accept_loop will be unrolled up to 4 times due to @pragma max_loop_depth.
+warning: Parser state min_parse_depth_accept_loop will be unrolled up to 4 times due to @pragma max_loop_depth.
+
+0 errors, 3 warnings generated.
+
+[100%] Built target basic-tofino
+[100%] Built target basic
+[  0%] Built target driver
+[  0%] Built target bf-p4c
+[100%] Built target basic-tofino
+[100%] Built target basic
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino
+-- Installing: /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino/basic.conf
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/basic
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/basic/bf-rt.json
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/basic/pipe
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/basic/pipe/context.json
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/basic/pipe/tofino.bin
+P4_BUILD_EXIT=0
+
+===== locate generated artifacts for lab1_basic =====

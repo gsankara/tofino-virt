@@ -1,0 +1,74 @@
+wrapper start Thu Aug  6 20:00:16 UTC 2026
+=== [1] launch tofino-model for cons2 ===
+model up (child alive: True)
+=== [2] launch bf_switchd for cons2, wait bfshell> ===
+!!! never reached bfshell>: TIMEOUT('Timeout exceeded.\n<pexpect.pty_spawn.spawn object at 0x7a5b0f7c5060>\ncommand: /bin/bash\nargs: [b\'/bin/bash\', b\'-lc\', b"source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh; export NIX_REMOTE=daemon; sde-env-9.13.4 --platform=model --command \'run_switchd.sh -p cons2\'"]\nbuffer (last 100 chars): \' dev_id 0 subdev_id 0 size 2093568 failed(-1)\\r\\n\\r\\r\\n\\x1b[1;32m[nix-shell(\\x1b[31mSDE-9.13.4\\x1b[1;32m):~]$\\x1b[0m \'\nbefore (last 100 chars): \' dev_id 0 subdev_id 0 size 2093568 failed(-1)\\r\\n\\r\\r\\n\\x1b[1;32m[nix-shell(\\x1b[31mSDE-9.13.4\\x1b[1;32m):~]$\\x1b[0m \'\nafter: <class \'pexpect.exceptions.TIMEOUT\'>\nmatch: None\nmatch_index: None\nexitstatus: None\nflag_eof: False\npid: 170001\nchild_fd: 8\nclosed: False\ntimeout: 180\ndelimiter: <class \'pexpect.exceptions.EOF\'>\nlogfile: <_io.TextIOWrapper name=\'/home/coder/logs/drv-switchd-cons2.log\' mode=\'w\' encoding=\'UTF-8\'>\nlogfile_read: None\nlogfile_send: None\nmaxread: 2000\nignorecase: False\nsearchwindowsize: None\ndelaybeforesend: 0.05\ndelayafterclose: 0.1\ndelayafterterminate: 0.1\nsearcher: searcher_re:\n    0: re.compile(\'bfshell>\')')
+Traceback (most recent call last):
+  File "/home/coder/p4-virt/drive_cons.py", line 36, in <module>
+    sw.expect(r"bfshell>", timeout=180)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 181, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 144, in timeout
+    raise exc
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7a5b0f7c5060>
+command: /bin/bash
+args: [b'/bin/bash', b'-lc', b"source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh; export NIX_REMOTE=daemon; sde-env-9.13.4 --platform=model --command 'run_switchd.sh -p cons2'"]
+buffer (last 100 chars): ' dev_id 0 subdev_id 0 size 2093568 failed(-1)\r\n\r\r\n\x1b[1;32m[nix-shell(\x1b[31mSDE-9.13.4\x1b[1;32m):~]$\x1b[0m '
+before (last 100 chars): ' dev_id 0 subdev_id 0 size 2093568 failed(-1)\r\n\r\r\n\x1b[1;32m[nix-shell(\x1b[31mSDE-9.13.4\x1b[1;32m):~]$\x1b[0m '
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 170001
+child_fd: 8
+closed: False
+timeout: 180
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='/home/coder/logs/drv-switchd-cons2.log' mode='w' encoding='UTF-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('bfshell>')
+switchd tail:
+06 20:00:28.589621 BF_SWITCHD DEBUG -     libpdthrift: 
+2026-08-06 20:00:28.589630 BF_SWITCHD DEBUG -     context: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/context.json
+2026-08-06 20:00:28.589639 BF_SWITCHD DEBUG -     config: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/tofino.bin
+2026-08-06 20:00:28.589648 BF_SWITCHD DEBUG -   Pipes in scope [
+2026-08-06 20:00:28.589657 BF_SWITCHD DEBUG - 1 
+2026-08-06 20:00:28.589666 BF_SWITCHD DEBUG - 3 
+2026-08-06 20:00:28.589675 BF_SWITCHD DEBUG - ]
+2026-08-06 20:00:28.589684 BF_SWITCHD DEBUG -   diag: 
+2026-08-06 20:00:28.589693 BF_SWITCHD DEBUG -   accton diag: 
+2026-08-06 20:00:28.589702 BF_SWITCHD DEBUG -   Agent[0]: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/lib/libpltfm_mgr.so
+2026-08-06 20:00:28.596376 BF_SWITCHD DEBUG - bf_switchd: library /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/lib/libpltfm_mgr.so loaded
+2026-08-06 20:00:28.597139 BF_SWITCHD DEBUG - bf_switchd: agent[0] initialized
+2026-08-06 20:00:28.598240 BF_SWITCHD DEBUG - Device 0: Operational mode set to MODEL
+2026-08-06 20:00:28.598254 BF_SWITCHD DEBUG - Initialized the device types using platforms infra API
+Starting PD-API RPC server on port 9090
+2026-08-06 20:00:28.606186 BF_SWITCHD DEBUG - bf_switchd: drivers initialized
+2026-08-06 20:00:28.606215 BF_SWITCHD DEBUG - bf_switchd: initializing dru_sim service
+2026-08-06 20:00:28.606550 BF_SWITCHD DEBUG - bf_switchd: library libdru_sim.so loaded
+INFO: DRU sim MTI initialized successfully
+dru_sim: client socket created
+dru_sim: connected on port 8001
+dru_sim: listen socket created
+dru_sim: bind done on port 8002, listening...
+dru_sim: waiting for incoming connections...
+dru_sim: connection accepted on port 8002
+dru_sim: DRU simulator running
+2026-08-06 20:00:29.311221 BF_SWITCHD ERROR - ERROR: DR pool create failed; dev_id 0 subdev_id 0 size 2093568 failed(-1)
+
+[1;32m[nix-shell([31mSDE-9.13.4[1;32m):~]$[0m 
+wrapper rc=2 end Thu Aug  6 20:03:26 UTC 2026

@@ -1,0 +1,106 @@
+===== p4_build.sh cons2  (/home/coder/p4-virt/cons2.p4)  at Thu Aug  6 18:55:37 UTC 2026 =====
+
+Intel Tofino SDE 9.13.4 on platform "model"
+Compile: $ p4_build.sh <p4name>.p4
+Run:     $ run_switchd.sh -p <p4name>
+Run Tofino model:
+         $ sudo $(type -p veth_setup.sh)
+         $ run_tofino_model.sh -p <p4name>
+         $ run_switchd.sh -p <p4name>
+         $ sudo $(type -p veth_teardown.sh)
+Run Tofino model with custom portinfo file:
+         $ sudo $(type -p veth_from_portinfo) <portinfo-file>
+         $ run_tofino_model.sh -p <p4name> -f <portinfo-file>
+         $ run_switchd.sh -p <p4name>
+         $ sudo $(type -p veth_from_portinfo) --teardown <portinfo-file>
+Run PTF tests: run the Tofino model, then
+         $ run_p4_tests.sh -p <p4name> -t <path-to-dir-with-test-scripts>
+
+Build artifacts and logs are stored in /home/coder/.bf-sde/9.13.4
+
+Use "exit" or CTRL-D to exit this shell.
+Executing command "p4_build.sh /home/coder/p4-virt/cons2.p4"
+CMake Deprecation Warning at CMakeLists.txt:158 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- 
+Using SDE: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4
+-- 
+Using SDE_INSTALL: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4
+<string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-- 
+P4_LANG: p4-16
+P4C: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/bin/bf-p4c
+P4C-GEN_BRFT-CONF: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/bin/p4c-gen-bfrt-conf
+P4C-MANIFEST-CONFIG: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/bin/p4c-manifest-config
+<string>:2: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:2: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-- 
+P4_PATH: /home/coder/p4-virt/cons2.p4
+P4_NAME: cons2
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/coder/.bf-sde/9.13.4/build
+[  0%] Built target driver
+[  0%] Built target bf-p4c
+[100%] Generating cons2/tofino/bf-rt.json
+/home/coder/p4-virt/cons2.p4(20): [--Wwarn=uninitialized_out_param] warning: out parameter 'meta' may be uninitialized when 'A_IngressParser' terminates
+parser A_IngressParser(packet_in pkt, out a_ig_headers_t hdr, out a_ig_metadata_t meta,
+                                                                                  ^^^^
+/home/coder/p4-virt/cons2.p4(20)
+parser A_IngressParser(packet_in pkt, out a_ig_headers_t hdr, out a_ig_metadata_t meta,
+       ^^^^^^^^^^^^^^^
+/home/coder/p4-virt/cons2.p4(77): [--Wwarn=uninitialized_out_param] warning: out parameter 'meta' may be uninitialized when 'B_IngressParser' terminates
+parser B_IngressParser(packet_in pkt, out b_ig_headers_t hdr, out b_ig_metadata_t meta,
+                                                                                  ^^^^
+/home/coder/p4-virt/cons2.p4(77)
+parser B_IngressParser(packet_in pkt, out b_ig_headers_t hdr, out b_ig_metadata_t meta,
+       ^^^^^^^^^^^^^^^
+warning: Parser state min_parse_depth_accept_loop will be unrolled up to 4 times due to @pragma max_loop_depth.
+warning: Parser state min_parse_depth_accept_loop will be unrolled up to 4 times due to @pragma max_loop_depth.
+warning: Parser state min_parse_depth_accept_loop will be unrolled up to 4 times due to @pragma max_loop_depth.
+warning: Parser state min_parse_depth_accept_loop will be unrolled up to 4 times due to @pragma max_loop_depth.
+
+0 errors, 6 warnings generated.
+
+[100%] Built target cons2-tofino
+[100%] Built target cons2
+[  0%] Built target driver
+[  0%] Built target bf-p4c
+[100%] Built target cons2-tofino
+[100%] Built target cons2
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Up-to-date: /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino
+-- Installing: /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino/pipeA
+-- Installing: /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino/pipeB
+-- Installing: /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino/cons2.conf
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/bf-rt.json
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeA
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeA/context.json
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeA/tofino.bin
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/context.json
+-- Installing: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/tofino.bin
+P4_BUILD_EXIT=0
+
+===== locate generated artifacts for cons2 =====
+/home/coder/.bf-sde/9.13.4/build/cons2/tofino/bf-rt.json
+/home/coder/.bf-sde/9.13.4/build/cons2/tofino/cons2.conf
+/home/coder/.bf-sde/9.13.4/build/cons2/tofino/pipeA/context.json
+/home/coder/.bf-sde/9.13.4/build/cons2/tofino/pipeA/tofino.bin
+/home/coder/.bf-sde/9.13.4/build/cons2/tofino/pipeB/context.json
+/home/coder/.bf-sde/9.13.4/build/cons2/tofino/pipeB/tofino.bin
+/home/coder/.bf-sde/9.13.4/share/p4/targets/tofino/cons2.conf
+/home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/bf-rt.json
+/home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeA/context.json
+/home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeA/tofino.bin
+/home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/context.json
+/home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/tofino.bin

@@ -1,0 +1,10 @@
+# Intel-licensed SDE source tarballs — never commit (large + proprietary)
+bf-sde-*.tgz
+bf-reference-bsp-*.tgz
+*.tgz
+# nix / build outputs
+result
+result-*
+__pycache__/
+*.pyc
+venv/

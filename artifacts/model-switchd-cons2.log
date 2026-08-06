@@ -1,0 +1,84 @@
+
+Intel Tofino SDE 9.13.4 on platform "model"
+Compile: $ p4_build.sh <p4name>.p4
+Run:     $ run_switchd.sh -p <p4name>
+Run Tofino model:
+         $ sudo $(type -p veth_setup.sh)
+         $ run_tofino_model.sh -p <p4name>
+         $ run_switchd.sh -p <p4name>
+         $ sudo $(type -p veth_teardown.sh)
+Run Tofino model with custom portinfo file:
+         $ sudo $(type -p veth_from_portinfo) <portinfo-file>
+         $ run_tofino_model.sh -p <p4name> -f <portinfo-file>
+         $ run_switchd.sh -p <p4name>
+         $ sudo $(type -p veth_from_portinfo) --teardown <portinfo-file>
+Run PTF tests: run the Tofino model, then
+         $ run_p4_tests.sh -p <p4name> -t <path-to-dir-with-test-scripts>
+
+Build artifacts and logs are stored in /home/coder/.bf-sde/9.13.4
+
+Use "exit" or CTRL-D to exit this shell.
+Executing command "run_switchd.sh -p cons2"
+Using SDE /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4
+Using SDE_INSTALL /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4
+Setting up DMA Memory Pool
+sysctl: setting key "vm.nr_hugepages", ignoring: Read-only file system
+sysctl: setting key "vm.nr_hugepages", ignoring: Read-only file system
+Using TARGET_CONFIG_FILE /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino/cons2.conf
+Using PATH /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/bin:/nix/store/bblyj5b3ii8n6v4ra0nb37cmi3lf8rz9-coreutils-9.3/bin:/nix/store/jx8g44qcnd9ai39cx8qnzmvbmpkii4aw-util-linux-2.39.2-bin/bin:/nix/store/l974pi8a5yqjrjlzmg6apk0jwjv81yqw-findutils-4.9.0/bin:/nix/store/rx2wig5yhpbwhnqxdy4z7qivj9ln7fab-gnugrep-3.11/bin:/nix/store/9c5qm297qnvwcf7j0gm01qrslbiqz8rs-gnused-4.9/bin:/nix/store/b4k2k6m3fy4nq58l5lnahd6x6m1fdq7g-procps-3.3.17/bin:/nix/store/q1c2flcykgr4wwg5a6h450hxbk4ch589-bash-5.2-p15/bin
+Using LD_LIBRARY_PATH /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/lib::/usr/local/lib
+2026-08-06 20:00:28.589281 BF_SWITCHD DEBUG - bf_switchd: system services initialized
+2026-08-06 20:00:28.589318 BF_SWITCHD DEBUG - bf_switchd: loading conf_file /home/coder/.bf-sde/9.13.4/share/p4/targets/tofino/cons2.conf...
+2026-08-06 20:00:28.589343 BF_SWITCHD DEBUG - bf_switchd: processing device configuration...
+2026-08-06 20:00:28.589384 BF_SWITCHD DEBUG - Configuration for dev_id 0
+2026-08-06 20:00:28.589394 BF_SWITCHD DEBUG -   Family        : tofino
+2026-08-06 20:00:28.589404 BF_SWITCHD DEBUG -   pci_sysfs_str : /sys/devices/pci0000:00/0000:00:03.0/0000:05:00.0
+2026-08-06 20:00:28.589413 BF_SWITCHD DEBUG -   pci_int_mode  : 0
+2026-08-06 20:00:28.589422 BF_SWITCHD DEBUG -   sds_fw_path   : share/tofino_sds_fw/avago/firmware
+2026-08-06 20:00:28.589431 BF_SWITCHD DEBUG - bf_switchd: processing P4 configuration...
+2026-08-06 20:00:28.589458 BF_SWITCHD DEBUG - coal_mirror_enable=0 coal_min=0 sessions_num=0
+2026-08-06 20:00:28.589470 BF_SWITCHD DEBUG - P4 profile for dev_id 0
+2026-08-06 20:00:28.589479 BF_SWITCHD DEBUG - num P4 programs 1
+2026-08-06 20:00:28.589488 BF_SWITCHD DEBUG -   p4_name: cons2
+2026-08-06 20:00:28.589497 BF_SWITCHD DEBUG -   p4_pipeline_name: pipeA
+2026-08-06 20:00:28.589506 BF_SWITCHD DEBUG -     libpd: 
+2026-08-06 20:00:28.589515 BF_SWITCHD DEBUG -     libpdthrift: 
+2026-08-06 20:00:28.589524 BF_SWITCHD DEBUG -     context: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeA/context.json
+2026-08-06 20:00:28.589534 BF_SWITCHD DEBUG -     config: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeA/tofino.bin
+2026-08-06 20:00:28.589543 BF_SWITCHD DEBUG -   Pipes in scope [
+2026-08-06 20:00:28.589552 BF_SWITCHD DEBUG - 0 
+2026-08-06 20:00:28.589565 BF_SWITCHD DEBUG - 2 
+2026-08-06 20:00:28.589574 BF_SWITCHD DEBUG - ]
+2026-08-06 20:00:28.589587 BF_SWITCHD DEBUG -   diag: 
+2026-08-06 20:00:28.589595 BF_SWITCHD DEBUG -   accton diag: 
+2026-08-06 20:00:28.589604 BF_SWITCHD DEBUG -   p4_pipeline_name: pipeB
+2026-08-06 20:00:28.589613 BF_SWITCHD DEBUG -     libpd: 
+2026-08-06 20:00:28.589621 BF_SWITCHD DEBUG -     libpdthrift: 
+2026-08-06 20:00:28.589630 BF_SWITCHD DEBUG -     context: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/context.json
+2026-08-06 20:00:28.589639 BF_SWITCHD DEBUG -     config: /home/coder/.bf-sde/9.13.4/share/tofinopd/cons2/pipeB/tofino.bin
+2026-08-06 20:00:28.589648 BF_SWITCHD DEBUG -   Pipes in scope [
+2026-08-06 20:00:28.589657 BF_SWITCHD DEBUG - 1 
+2026-08-06 20:00:28.589666 BF_SWITCHD DEBUG - 3 
+2026-08-06 20:00:28.589675 BF_SWITCHD DEBUG - ]
+2026-08-06 20:00:28.589684 BF_SWITCHD DEBUG -   diag: 
+2026-08-06 20:00:28.589693 BF_SWITCHD DEBUG -   accton diag: 
+2026-08-06 20:00:28.589702 BF_SWITCHD DEBUG -   Agent[0]: /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/lib/libpltfm_mgr.so
+2026-08-06 20:00:28.596376 BF_SWITCHD DEBUG - bf_switchd: library /nix/store/lx3s8azvppvx7ay9v48a0ivq1x6jxiyd-bf-sde-model-env-9.13.4/lib/libpltfm_mgr.so loaded
+2026-08-06 20:00:28.597139 BF_SWITCHD DEBUG - bf_switchd: agent[0] initialized
+2026-08-06 20:00:28.598240 BF_SWITCHD DEBUG - Device 0: Operational mode set to MODEL
+2026-08-06 20:00:28.598254 BF_SWITCHD DEBUG - Initialized the device types using platforms infra API
+Starting PD-API RPC server on port 9090
+2026-08-06 20:00:28.606186 BF_SWITCHD DEBUG - bf_switchd: drivers initialized
+2026-08-06 20:00:28.606215 BF_SWITCHD DEBUG - bf_switchd: initializing dru_sim service
+2026-08-06 20:00:28.606550 BF_SWITCHD DEBUG - bf_switchd: library libdru_sim.so loaded
+INFO: DRU sim MTI initialized successfully
+dru_sim: client socket created
+dru_sim: connected on port 8001
+dru_sim: listen socket created
+dru_sim: bind done on port 8002, listening...
+dru_sim: waiting for incoming connections...
+dru_sim: connection accepted on port 8002
+dru_sim: DRU simulator running
+2026-08-06 20:00:29.311221 BF_SWITCHD ERROR - ERROR: DR pool create failed; dev_id 0 subdev_id 0 size 2093568 failed(-1)
+
+[1;32m[nix-shell([31mSDE-9.13.4[1;32m):~]$[0m 
