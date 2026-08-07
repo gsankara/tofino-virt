@@ -65,5 +65,5 @@ ENV LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 # ~403 MB). scp them onto the persistent home volume, then run:
 #   bash ~/tofino-virt/provision-sde.sh
 
-WORKDIR /home/${USERNAME}
+#WORKDIR /home/${USERNAME}
 CMD ["/bin/bash", "-l"]
