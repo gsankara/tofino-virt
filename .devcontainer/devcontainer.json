@@ -1,27 +1,7 @@
 {
   "name": "tofino-virt",
-  // envbuilder builds the image from our root Dockerfile.
-  // Paths are relative to this .devcontainer/ folder.
   "build": {
     "dockerfile": "../Dockerfile",
     "context": ".."
-  },
-  "remoteUser": "coder",
-  "containerUser": "coder",
-  "overrideCommand": false,
-
-  // Best-effort runtime privileges for the Tofino model/switchd.
-  // NOTE: envbuilder/Coder may ignore runArgs — the authoritative place for
-  // caps + hugepages is the Coder *template* (docker_container). See README.md.
-  "runArgs": [
-    "--cap-add=NET_ADMIN",
-    "--cap-add=NET_RAW",
-    "--cap-add=IPC_LOCK",
-    "--cap-add=SYS_ADMIN",
-    "--device=/dev/net/tun"
-  ]
-  // Hugepages must be reserved on the Docker HOST (vm.nr_hugepages) and, if your
-  // platform honors it, bind-mounted. Do NOT hard-mount here unless the host has
-  // /dev/hugepages, or container creation will fail:
-  //   "mounts": ["source=/dev/hugepages,target=/dev/hugepages,type=bind"]
+  }
 }
